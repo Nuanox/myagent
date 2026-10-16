@@ -9,10 +9,16 @@ def check(run):
     errors, warnings = [], []
     def err(message):
         errors.append(message)
+    if not run.is_dir():
+        return [f'Run directory does not exist: {run}'], warnings
     for name in ('brief.md', 'evidence.json', 'report.md', 'audit.md'):
         path = run / name
         if not path.is_file() or not path.read_text(encoding='utf-8-sig').strip():
             err(f'Missing or empty {name}')
+    for optional in ('outline.md', 'review.md'):
+        opt_path = run / optional
+        if not opt_path.is_file() or not opt_path.read_text(encoding='utf-8-sig').strip():
+            warnings.append(f'Missing or empty {optional}; include it for substantial reviewed reports')
     if errors:
         return errors, warnings
     try:
