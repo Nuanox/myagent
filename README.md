@@ -16,9 +16,20 @@
 
 ## 설치 및 사용 방법
 
-### 1. 작업 폴더 단위로 사용하기
+### 1. 이미 연 현재 폴더에 바로 설치하기
 
-원하는 위치에 저장소를 복제한 뒤 해당 폴더를 에이전트에서 엽니다.
+에이전트에서 새 폴더를 연 상태로 설치할 때는 현재 폴더 안에서 아래 명령을 실행합니다. 폴더 안에 숨김 파일이 이미 있어도 충돌 없이 설치됩니다.
+
+```bash
+git init -b main
+git remote add origin https://github.com/Nuanox/myagent.git
+git fetch origin
+git checkout -t origin/main -f
+```
+
+### 2. 새 폴더로 복제해서 사용하기
+
+터미널에서 새 폴더를 만들며 복제할 때는 아래 명령을 실행한 뒤 해당 폴더를 에이전트에서 엽니다.
 
 ```bash
 git clone https://github.com/Nuanox/myagent.git
