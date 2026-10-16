@@ -1,0 +1,16 @@
+# Local working directories and personal files
+/녹음파일/
+/work/
+/research/
+/references/
+
+# Python and hook caches
+__pycache__/
+*.py[cod]
+.agents/.research-gate/
+.agents/hooks/
+.agents/hooks.json
+
+# OS metadata
+.DS_Store
+Thumbs.db
